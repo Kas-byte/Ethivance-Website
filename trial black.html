@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethivance - Ethical AI Automation Solutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #050B0F;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif; 
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #050B0F;
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+  
+      .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+                background: linear-gradient(90deg, #3498db, #2ecc71);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2f8886;
+            transition: width 0.3s ease;
+        }
+
+        .cta-nav {
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            font-size: 1rem;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(47, 136, 134, 0.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #3498db;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #050B0F;
+            margin: 0;
+            max-width: 100%;
+            padding: 8rem 2rem 5rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin: 1 rem;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-text h1 span.highlight {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 4.5rem;
+            max-width: 100%;
+            display: block;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
+            border-top-left-radius: 150px; 
+            border-top-right-radius: 150px; 
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+    
+            
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #D9DCD6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 0;
+            
+        }
+
+        .about-card {
+            background:transparent;
+            padding: 0.8rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: #050B0F;
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .about-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2f8886;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            color: #050B0F;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
+
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-card .icon {
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-features li {
+            color: #5a6c7d;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        /* Target Audience Section */
+        .target-audience {
+             background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
+             border-top-left-radius: 0; 
+             border-top-right-radius: 0; 
+             border-bottom-left-radius: 150px;
+             border-bottom-right-radius: 150px;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .audience-card {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audience-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .audience-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50px, 50px);
+        }
+
+        .audience-card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .audience-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #050B0F;
+        }
+
+        .audience-card p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            
+            background: #050B0F;
+            color: white;
+            text-align: center;
+            margin: 0;
+            max-width: 100%;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #050B0F;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+                background: linear-gradient(90deg, #3498db, #2ecc71);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            text-align: center;
+            color: #95a5a6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 1rem; 
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #050B0F;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: #FFFFFF;
+            }
+
+            .logo {
+                order: 1; 
+            }
+
+            .cta-nav {
+                order: 2; 
+                margin: 0 1rem; 
+            }
+
+            .menu-toggle {
+                order: 3; 
+                display: block;
+                margin-left: auto;
+            }
+
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h1 span.highlight {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Ethivance</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#audience">Who We Serve</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#"class="cta-nav">Get Started</a></li>
+            </ul>
+         
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Ethical <span class="highlight">AI Automation</span> for Your Business</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header animate-on-scroll">
+            <h2>Why Choose Ethivance?</h2>
+            <p>Founded by Dzariif, we're committed to empowering businesses through ethical, purpose-driven AI solutions that save time without losing the human element.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card animate-on-scroll">
+                <div class="icon">⚡</div>
+                <h3>Efficiency First</h3>
+                <p>Automate repetitive tasks so you can focus on what matters most — growing your business and serving clients better.</p>
+            </div>
+            <div class="about-card animate-on-scroll">
+                <div class="icon">🎯</div>
+                <h3>Purpose-Driven</h3>
+                <p>Every solution is built with ethics and human values at its core. Technology that serves people, not the other way around.</p>
+            </div>
+            <div class="about-card animate-on-scroll">
+                <div class="icon">🤝</div>
+                <h3>Human Touch</h3>
+                <p>Our AI maintains your personal brand voice and builds genuine connections with your clients through intelligent automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header animate-on-scroll">
+            <h2>Our Solutions</h2>
+            <p>Tailored AI automation that fits seamlessly into your existing workflow</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <h3><span class="icon">🤖</span> AI Chatbots</h3>
+                <p>Intelligent chatbots that handle customer inquiries 24/7, providing instant responses while capturing leads and scheduling appointments.</p>
+                <ul class="service-features">
+                    <li>24/7 customer support</li>
+                    <li>Lead qualification & capture</li>
+                    <li>Appointment scheduling</li>
+                    <li>Custom brand voice</li>
+                </ul>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <h3><span class="icon">📱</span> WhatsApp & Email Automation</h3>
+                <p>Automated responses and follow-ups across WhatsApp and email that maintain personal connections with your clients.</p>
+                <ul class="service-features">
+                    <li>Automated follow-ups</li>
+                    <li>Personalized messaging</li>
+                    <li>Multi-platform integration</li>
+                    <li>Smart scheduling</li>
+                </ul>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <h3><span class="icon">👥</span> Virtual Assistants</h3>
+                <p>AI-powered virtual assistants that handle administrative tasks, client communications, and business operations.</p>
+                <ul class="service-features">
+                    <li>Task management</li>
+                    <li>Client communication</li>
+                    <li>Data organization</li>
+                    <li>Report generation</li>
+                </ul>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <h3><span class="icon">⚙️</span> Custom AI Agents</h3>
+                <p>Bespoke AI solutions designed specifically for your industry and business needs, from real estate to financial services.</p>
+                <ul class="service-features">
+                    <li>Industry-specific solutions</li>
+                    <li>Custom integrations</li>
+                    <li>Scalable architecture</li>
+                    <li>Ongoing optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section id="audience" class="target-audience">
+        <div class="section-header animate-on-scroll">
+            <h2>Who We Serve</h2>
+            <p>Service-based professionals who value efficiency and client relationships</p>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-card animate-on-scroll">
+                <div class="icon">🏠</div>
+                <h3>Real Estate Agents</h3>
+                <p>Automate lead follow-ups, property inquiries, and client communications</p>
+            </div>
+            <div class="audience-card animate-on-scroll">
+                <div class="icon">💼</div>
+                <h3>Financial Advisors</h3>
+                <p>Streamline client onboarding, appointment scheduling, and compliance communications</p>
+            </div>
+            <div class="audience-card animate-on-scroll">
+                <div class="icon">🔧</div>
+                <h3>Local Contractors</h3>
+                <p>Manage quotes, scheduling, and customer service for cleaning, lawn care, and building services</p>
+            </div>
+            <div class="audience-card animate-on-scroll">
+                <div class="icon">🎯</div>
+                <h3>Service Professionals</h3>
+                <p>Any service-based business looking to scale efficiently while maintaining quality relationships</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="cta-content animate-on-scroll">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join forward-thinking professionals who've streamlined their operations with ethical AI automation</p>
+            <a href="#contact" class="btn-white">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ethivance</h3>
+                <p>Empowering businesses through ethical AI automation solutions. Founded on trust, purpose, and human values.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <p><a href="#services">AI Chatbots</a></p>
+                <p><a href="#services">WhatsApp Automation</a></p>
+                <p><a href="#services">Virtual Assistants</a></p>
+                <p><a href="#services">Custom AI Agents</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Locations</h3>
+                <p>Sydney, Australia</p>
+                <p>Singapore</p>
+                <p>Shah Alam, Malaysia</p>
+            </div>
+            <div class="footer-section">
+                <h3>Get Started</h3>
+                <p><a href="mailto:hello@ethivance.com">hello@ethivance.com</a></p>
+                <p><a href="#contact">Book Consultation</a></p>
+                <p><a href="#services">View Solutions</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Ethivance. All rights reserved. | Built with purpose and ethics in mind.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Mobile Menu closes auto
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) { // Check if on mobile
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active'); // Close the menu
+            }
+        }
+    });
+});
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Ripple effect for buttons
+        document.querySelectorAll('.btn-white, .cta-nav').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to { transform: scale(4); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Dynamic typing effect for hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.innerHTML = 'Ethical <span class="highlight">AI Automation</span> for Your Business';
+                }
+            }
+            type();
+        }
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 50);
+            }
+        });
+
+        // Contact form interaction
+        document.querySelectorAll('.cta-nav, .btn-white').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.getAttribute('href') === '#contact' || btn.textContent.includes('Get Started') || btn.textContent.includes('Start Your Journey')) {
+                    e.preventDefault();
+                    document.querySelector('#contact').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    setTimeout(() => {
+                        const email = prompt('Enter your email to get started:');
+                        if (email) {
+                            console.log('Form submitted:', { email, interest: 'General Inquiry' });
+                            alert('Thank you for your interest! We will contact you shortly.');
+                        }
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
