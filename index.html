@@ -55,8 +55,7 @@
             text-decoration: none;
         }
 
-  
-      .nav-links {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
@@ -71,10 +70,10 @@
         }
 
         .nav-links a:hover {
-                background: linear-gradient(90deg, #3498db, #2ecc71);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .nav-links a:hover::after {
@@ -160,7 +159,7 @@
             font-weight: 700;
             color: #ffffff;
             line-height: 1.2;
-            margin: 1 rem;
+            margin: 1rem;
             animation: fadeInUp 1s ease forwards;
         }
 
@@ -182,8 +181,6 @@
             border-top-right-radius: 150px; 
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-    
-            
         }
 
         .section-header {
@@ -210,11 +207,10 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 0;
-            
         }
 
         .about-card {
-            background:transparent;
+            background: transparent;
             padding: 0.8rem;
             border-radius: 15px;
             text-align: center;
@@ -247,9 +243,7 @@
 
         /* Services Section */
         .services {
-            
             background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
-
         }
 
         .services-grid {
@@ -320,11 +314,11 @@
 
         /* Target Audience Section */
         .target-audience {
-             background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
-             border-top-left-radius: 0; 
-             border-top-right-radius: 0; 
-             border-bottom-left-radius: 150px;
-             border-bottom-right-radius: 150px;
+            background: linear-gradient(90deg, rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7));
+            border-top-left-radius: 0; 
+            border-top-right-radius: 0; 
+            border-bottom-left-radius: 150px;
+            border-bottom-right-radius: 150px;
         }
 
         .audience-grid {
@@ -385,7 +379,6 @@
 
         /* CTA Section */
         .cta-section {
-            
             background: #050B0F;
             color: white;
             text-align: center;
@@ -487,10 +480,10 @@
         }
 
         .footer-section a:hover {
-                background: linear-gradient(90deg, #3498db, #2ecc71);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .footer-bottom {
@@ -500,6 +493,56 @@
             border-top: 1px solid #34495e;
             text-align: center;
             color: #95a5a6;
+        }
+
+        /* Chatbot Placeholder */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-toggle::before {
+            content: '💬';
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* Responsive Chatbot */
+        @media (max-width: 768px) {
+            .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .chatbot-toggle::before {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-container {
+                bottom: 15px;
+                right: 15px;
+            }
         }
 
         /* Animations */
@@ -559,7 +602,6 @@
                 margin-left: auto;
             }
 
-
             .hero-text h1 {
                 font-size: 2rem;
             }
@@ -594,9 +636,8 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#audience">Who We Serve</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#"class="cta-nav">Get Started</a></li>
+                <li><a href="#cta" class="cta-nav">Get Started</a></li>
             </ul>
-         
         </div>
     </nav>
 
@@ -613,7 +654,7 @@
     <section id="about" class="about">
         <div class="section-header animate-on-scroll">
             <h2>Why Choose Ethivance?</h2>
-            <p>Founded by Dzariif, we're committed to empowering businesses through ethical, purpose-driven AI solutions that save time without losing the human element.</p>
+            <p>We're committed to empowering businesses through ethical, purpose-driven AI solutions that save time without losing the human element.</p>
         </div>
         <div class="about-grid">
             <div class="about-card animate-on-scroll">
@@ -719,7 +760,7 @@
         <div class="cta-content animate-on-scroll">
             <h2>Ready to Transform Your Business?</h2>
             <p>Join forward-thinking professionals who've streamlined their operations with ethical AI automation</p>
-            <a href="#contact" class="btn-white">Start Your Journey Today</a>
+            <a href="https://forms.gle/c7jFwd4CVwk2zJ4G9" class="btn-white google-form-link" target="_blank">Start Your Journey Today</a>
         </div>
     </section>
 
@@ -755,6 +796,11 @@
         </div>
     </footer>
 
+    <!-- Chatbot Placeholder -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle"></div>
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -778,17 +824,16 @@
         });
 
         // Mobile Menu closes auto
-
         document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) { // Check if on mobile
-            const navLinks = document.querySelector('.nav-links');
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active'); // Close the menu
-            }
-        }
-    });
-});
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const navLinks = document.querySelector('.nav-links');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
 
         // Animate on scroll
         const observerOptions = {
@@ -858,25 +903,6 @@
                 const originalText = heroTitle.textContent;
                 typeWriter(heroTitle, originalText, 50);
             }
-        });
-
-        // Contact form interaction
-        document.querySelectorAll('.cta-nav, .btn-white').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (btn.getAttribute('href') === '#contact' || btn.textContent.includes('Get Started') || btn.textContent.includes('Start Your Journey')) {
-                    e.preventDefault();
-                    document.querySelector('#contact').scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    setTimeout(() => {
-                        const email = prompt('Enter your email to get started:');
-                        if (email) {
-                            console.log('Form submitted:', { email, interest: 'General Inquiry' });
-                            alert('Thank you for your interest! We will contact you shortly.');
-                        }
-                    }, 500);
-                }
-            });
         });
     </script>
 </body>
